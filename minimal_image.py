@@ -22,13 +22,10 @@ def lightning_mcqueen(atoms, rcut, latvec):
     Returns
     -------
     total_lj : float
-        Total Lennard-Jones potential energy of the system (with a factor of 2 
-        for double-counting correction).
+        Total Lennard-Jones potential energy of crystal 
 
     forces : ndarray, shape (num_atoms, 3)
-        Forces on each atom due to Lennard-Jones interactions, including all  
-        periodic neighbors within the cutoff radius. 
-
+        Forces on each atom within cutoff radius 
 
     Notes
         -----
@@ -38,15 +35,13 @@ def lightning_mcqueen(atoms, rcut, latvec):
             
         r_cut <= min(lattice_lengths) / 2
 
-            where `lattice_lengths` are the lengths of the cell along each direction, 
+            where `lattice_lengths` are the lengths of the cell along each direction (scaled by lattice constant)
             extracted from the diagonal of the `latvec` matrix.
 
-        - If r_cut does not satisfy this condition use other function. 
+        - If r_cut does not satisfy this condition use other function (here). 
 
         - The Lennard-Jones potential is given by:
             V(r) = 4 * [(1/r)^12 - (1/r)^6]
-
-        Here, the potential is shifted to zero at the cutoff distance.
 
         - Forces are derived as:
             F(r) = -dV/dr = 24 * [(2/r^14) - (1/r^8)]
