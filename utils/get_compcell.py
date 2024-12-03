@@ -32,6 +32,13 @@ def setup_cell(L, M, N,lattice=np.sqrt(2)*2**(1/6)):
         [0.0, 0.5, 0.5],
         [0.5, 0.0, 0.5]
     ])
+
+    # basis = np.array([
+    #     [0.0, 0.0, 0.0],
+    #     [0.38, 0.36, 0.0],
+    #     [0.0, 0.4, 0.4],
+    #     [0.5, 0.0, 0.5]
+    # ])
    
     l_vals = np.arange(L)
     m_vals = np.arange(M)
